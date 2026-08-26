@@ -20,7 +20,7 @@ import {
 } from "@/data/bruno";
 import { brandColors } from "@/data/palette";
 import type { SearchResult, Project, ContactMethod, KnowledgePanelInfo } from "@/data/bruno";
-import { Copy, Check, Download } from "lucide-react";
+import { Copy, Check } from "lucide-react";
 
 type Tab = "all" | "experience" | "projects" | "contact";
 
@@ -28,7 +28,7 @@ function SearchContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { t } = useLanguage();
-  const query = searchParams.get("q") ?? "";
+  const query = searchParams.get("q") ?? "Bruno Simone";
   const activeTab = (searchParams.get("tab") as Tab) ?? "all";
 
   const isValidQuery =
@@ -189,9 +189,6 @@ function AllTab() {
         photo="/bruno.jpeg"
         seeMoreLabel={t.panel.seeMore}
         seeMoreUrl="/wiki"
-        cvHref={t.cv.href}
-        downloadCvLabel={t.panel.downloadCv}
-        cvFileName={t.cv.fileName}
       />
 
       <div className="flex gap-[60px]">
@@ -212,9 +209,6 @@ function AllTab() {
             {...knowledgePanel}
             photo="/bruno.jpeg"
             sourcePrefixLabel={t.panel.source}
-            cvHref={t.cv.href}
-            downloadCvLabel={t.panel.downloadCv}
-            cvFileName={t.cv.fileName}
           />
         </aside>
       </div>
@@ -381,26 +375,6 @@ function ContactTab() {
           )
         )}
 
-        <a
-          href={t.cv.href}
-          download={t.cv.fileName}
-          className="flex items-center gap-4 p-4 rounded-xl border border-surface-border hover:shadow-md transition-shadow"
-        >
-          <div className="size-10 rounded-full flex items-center justify-center text-white shrink-0 bg-[#1a73e8]">
-            <Download className="size-5" />
-          </div>
-          <div className="flex flex-col min-w-0">
-            <span className="text-sm text-content-tertiary">
-              {t.contact.cvLabel}
-            </span>
-            <span className="text-base text-link truncate">
-              {t.cv.fileName}
-            </span>
-          </div>
-          <span className="ml-auto shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#1a73e8] text-white text-[13px] font-semibold">
-            {t.panel.downloadCv}
-          </span>
-        </a>
       </div>
     </>
   );

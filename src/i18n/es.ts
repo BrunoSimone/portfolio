@@ -26,10 +26,6 @@ export const es = {
     copy: "Copiar",
     copied: "¡Copiado!",
   },
-  cv: {
-    href: "/cv-bruno-simone-es.pdf",
-    fileName: "CV Bruno Simone - Full-Stack Developer.pdf",
-  },
   panel: {
     source: "Fuente:",
     subtitle: "Full-Stack Developer",
@@ -40,7 +36,6 @@ export const es = {
     company: "Empresa",
     education: "Educación",
     educationValue: "UTN, Tec. en Programación (en curso)",
-    downloadCv: "Descargar CV",
     seeMore: "Ver más en Wikipedia",
   },
   proj: {
@@ -50,9 +45,6 @@ export const es = {
     caseStudy: "Ver caso de estudio",
     store: "Ficha en la tienda",
     private: "Repositorio privado",
-  },
-  contact: {
-    cvLabel: "CV",
   },
   case: {
     back: "← Volver a Proyectos",
@@ -125,10 +117,10 @@ export const es = {
       placeholder: "chat UI · captura · 4:3",
     },
     {
-      title: "Guild: Sitio de captación de leads para oficios",
+      title: "Canela: Catálogo de artesanías con consultas por WhatsApp",
       description:
-        "Sitio de marketing para «Buenas Manos», un gremio de oficios (plomería, carpintería, electricidad y herrería) en Mar del Plata. Next.js con Sanity CMS, SEO local, galería de trabajos y contacto de baja fricción por WhatsApp.",
-      placeholder: "landing + servicios · 4:3",
+        "Sitio-catálogo para Canela, un estudio de piezas artesanales en vidrio, cerámica y espejos. Catálogo filtrable con lightbox a pantalla completa y una lista de consulta que arma un mensaje de WhatsApp con las piezas elegidas. Next.js con Sanity CMS.",
+      placeholder: "catálogo + lightbox · 4:3",
     },
     {
       title: "Portfolio: Clon de Google Search",
@@ -177,27 +169,28 @@ export const es = {
         "El usuario hace una pregunta; el sistema embebe la consulta, busca los fragmentos más cercanos en pgvector y arma el contexto con sus citas. Gemini genera la respuesta en streaming, fundamentada y con enlaces a la documentación oficial. Si no hay contexto suficiente, deriva a ANSES en lugar de arriesgar un dato incorrecto.",
       solutionImage: "chat con respuesta + citas · 16:9",
     },
-    guild: {
-      title: "Guild: Sitio de captación de leads para oficios",
-      logo: "/buenas-manos-logo.svg",
-      type: "Sitio web · Marketing / Lead-gen",
+    canela: {
+      title: "Canela: Catálogo de artesanías con consultas por WhatsApp",
+      logo: "/canela-logo.png",
+      type: "Sitio web · Catálogo artesanal",
       role: "Diseño + Desarrollo",
       status: "En producción",
       statusColor: "#1e7e42",
-      stack: "Next.js, Sanity, Tailwind",
-      lede: "«Buenas Manos» es un sitio de captación de leads para un gremio de oficios (plomería, carpintería, electricidad y herrería) en Mar del Plata, pensado para SEO local, conversión y contacto de baja fricción.",
+      stack: "Next.js 16, Sanity, Motion",
+      lede: "Canela es un sitio-catálogo para un estudio de piezas artesanales (vidrio, cerámica y espejos) que muestra las obras y las convierte en consultas por WhatsApp, donde se cierra la venta y se coordina el pago de forma manual.",
       problem:
-        "Los oficios dependen del boca a boca y de plataformas que se quedan con el cliente y cobran comisión. El desafío era darle al gremio un canal propio que apareciera en las búsquedas locales y convirtiera visitas en consultas directas, sin intermediarios.",
+        "Las piezas son únicas o hechas a pedido, así que un checkout self-service con pago instantáneo no encaja: arriesga sobrevender piezas irrepetibles. El desafío era mostrar el catálogo de forma atractiva y llevar a la persona interesada a una conversación por WhatsApp con la menor fricción posible.",
       decisions: [
-        "SEO local como prioridad: una página por servicio con títulos y contenido optimizados, datos estructurados (JSON-LD), sitemap y robots.",
-        "Contacto de baja fricción: botón de presupuesto y contacto flotante por WhatsApp presentes en todo el sitio.",
-        "CMS headless (Sanity) para que el gremio cargue sus trabajos terminados (fotos, servicio, zona) sin tocar código.",
-        "Arquitectura serverless: una sola app Next.js sobre servicios gestionados, sin backend propio que mantener.",
-        "Galería de trabajos con carrusel (Embla) y animaciones (Motion) para mostrar el porfolio de obras de forma ágil.",
+        "Flujo human-in-the-loop en vez de checkout: para piezas únicas y a medida, una conversación por WhatsApp encaja mejor que un carrito con pago instantáneo (que arriesgaría sobrevender).",
+        "Lista de consulta → WhatsApp: el visitante acumula piezas en una lista liviana (React context) y envía todo en un solo mensaje pre-armado mediante un deep link wa.me.",
+        "Catálogo filtrable client-side: tres secciones (vidrio, cerámica, espejos) con chips de subcategoría; el filtrado es en memoria, sin recargar, para un browse más fluido.",
+        "Lightbox a pantalla completa con carrusel (Embla) para inspeccionar cada pieza en detalle.",
+        "CMS headless (Sanity) con listas ordenables drag-and-drop, para que la dueña gestione productos y destacados sin tocar código.",
+        "Accesibilidad y movimiento: respeta prefers-reduced-motion; diálogo y carrusel sobre primitivos accesibles (Base UI).",
       ],
       solution:
-        "Una landing con secciones por oficio y páginas dedicadas por servicio, cada una optimizada para su búsqueda local («plomero en Mar del Plata», etc.). Los trabajos terminados se cargan desde Sanity y se muestran en una galería paginada. Cada pantalla empuja al contacto directo por WhatsApp con un clic.",
-      solutionImage: "home + página de servicio · 16:9",
+        "Un sitio de una sola página que muestra las piezas en una grilla tipo galería, con filtros por categoría y un lightbox para inspeccionar cada obra. El visitante suma piezas a una lista de consulta y la envía por WhatsApp en un mensaje pre-armado. El contenido (productos y destacados del hero) se gestiona desde Sanity con revalidación cada 60s.",
+      solutionImage: "catálogo + lightbox + consulta · 16:9",
     },
     portfolio: {
       title: "Portfolio: Clon de Google Search",

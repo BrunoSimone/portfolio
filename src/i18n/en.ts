@@ -26,10 +26,6 @@ export const en = {
     copy: "Copy",
     copied: "Copied!",
   },
-  cv: {
-    href: "/cv-bruno-simone-en.pdf",
-    fileName: "Bruno Simone - Full-Stack Developer Resume.pdf",
-  },
   panel: {
     source: "Source:",
     subtitle: "Full-Stack Developer",
@@ -40,7 +36,6 @@ export const en = {
     company: "Company",
     education: "Education",
     educationValue: "UTN, Associate Degree in Computer Programming (in progress)",
-    downloadCv: "Download CV",
     seeMore: "See more on Wikipedia",
   },
   proj: {
@@ -50,9 +45,6 @@ export const en = {
     caseStudy: "View case study",
     store: "View in store",
     private: "Private repository",
-  },
-  contact: {
-    cvLabel: "CV",
   },
   case: {
     back: "← Back to Projects",
@@ -125,10 +117,10 @@ export const en = {
       placeholder: "chat UI · screenshot · 4:3",
     },
     {
-      title: "Guild: Lead-generation site for trades",
+      title: "Canela: Artisan catalog with WhatsApp inquiries",
       description:
-        "Marketing site for “Buenas Manos”, a trades guild (plumbing, carpentry, electricity, and ironwork) in Mar del Plata. Next.js with Sanity CMS, local SEO, a works gallery, and low-friction WhatsApp contact.",
-      placeholder: "landing + services · 4:3",
+        "Catalog site for Canela, a studio of handcrafted glass, ceramics, and mirrors. Filterable catalog with a fullscreen lightbox and an inquiry list that composes a pre-filled WhatsApp message with the selected pieces. Next.js with Sanity CMS.",
+      placeholder: "catalog + lightbox · 4:3",
     },
     {
       title: "Portfolio: Google Search Clone",
@@ -177,27 +169,28 @@ export const en = {
         "The user asks a question; the system embeds the query, finds the nearest chunks in pgvector, and builds the context with its citations. Gemini streams a grounded answer with links to the official documentation. When there isn't enough context, it defers to ANSES rather than risk an incorrect fact.",
       solutionImage: "chat with answer + citations · 16:9",
     },
-    guild: {
-      title: "Guild: Lead-generation site for trades",
-      logo: "/buenas-manos-logo.svg",
-      type: "Website · Marketing / Lead-gen",
+    canela: {
+      title: "Canela: Artisan catalog with WhatsApp inquiries",
+      logo: "/canela-logo.png",
+      type: "Website · Artisan catalog",
       role: "Design + Development",
       status: "In production",
       statusColor: "#1e7e42",
-      stack: "Next.js, Sanity, Tailwind",
-      lede: "“Buenas Manos” is a lead-generation site for a trades guild (plumbing, carpentry, electricity, and ironwork) in Mar del Plata, built for local SEO, conversion, and low-friction contact.",
+      stack: "Next.js 16, Sanity, Motion",
+      lede: "Canela is a catalog site for a studio of handcrafted pieces (glass, ceramics, and mirrors) that showcases the work and turns it into WhatsApp inquiries, where the sale is closed and payment coordinated manually.",
       problem:
-        "Trades rely on word of mouth and on platforms that keep the customer and charge a commission. The challenge was to give the guild a channel of its own that shows up in local searches and turns visits into direct inquiries, with no middlemen.",
+        "The pieces are one-of-a-kind or made to order, so a self-serve checkout with instant payment doesn't fit: it risks overselling unique items. The challenge was to present the catalog attractively and get an interested visitor into a WhatsApp conversation with as little friction as possible.",
       decisions: [
-        "Local SEO first: one page per service with optimized titles and copy, structured data (JSON-LD), sitemap, and robots.",
-        "Low-friction contact: a quote button and a floating WhatsApp contact present across the whole site.",
-        "Headless CMS (Sanity) so the guild can upload its completed works (photos, service, area) without touching code.",
-        "Serverless architecture: a single Next.js app on managed services, with no backend of its own to maintain.",
-        "Works gallery with a carousel (Embla) and animations (Motion) to showcase the portfolio of jobs smoothly.",
+        "Human-in-the-loop flow instead of checkout: for unique, made-to-order pieces, a WhatsApp conversation fits better than a cart with instant payment (which would risk overselling).",
+        "Inquiry list → WhatsApp: visitors accumulate pieces in a lightweight list (React context) and send the whole thing as a single pre-filled message via a wa.me deep link.",
+        "Client-side filterable catalog: three sections (glass, ceramics, mirrors) with subcategory chips; filtering is in-memory, no refetch, for a smoother browse.",
+        "Fullscreen lightbox with a carousel (Embla) to inspect each piece in detail.",
+        "Headless CMS (Sanity) with drag-and-drop orderable lists, so the owner manages products and highlights without touching code.",
+        "Accessibility & motion: respects prefers-reduced-motion; dialog and carousel built on accessible Base UI primitives.",
       ],
       solution:
-        "A landing with per-trade sections plus dedicated service pages, each optimized for its local search (“plumber in Mar del Plata”, etc.). Completed works are pulled from Sanity and shown in a paginated gallery. Every screen pushes toward direct WhatsApp contact in one click.",
-      solutionImage: "home + service page · 16:9",
+        "A single-page site that shows the pieces in a gallery-style grid, with category filters and a lightbox to inspect each work. Visitors add pieces to an inquiry list and send it over WhatsApp as a pre-filled message. Content (products and hero highlights) is managed from Sanity with a 60s revalidation window.",
+      solutionImage: "catalog + lightbox + inquiry · 16:9",
     },
     portfolio: {
       title: "Portfolio: Google Search Clone",

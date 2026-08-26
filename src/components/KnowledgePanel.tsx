@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Download } from "lucide-react";
 import type { KnowledgePanelInfo } from "@/data/bruno";
 
 interface KnowledgePanelProps {
@@ -12,30 +11,6 @@ interface KnowledgePanelProps {
   info: KnowledgePanelInfo[];
   photo?: string;
   sourcePrefixLabel?: string;
-  cvHref: string;
-  downloadCvLabel: string;
-  cvFileName?: string;
-}
-
-function CvButton({
-  href,
-  label,
-  fileName,
-}: {
-  href: string;
-  label: string;
-  fileName?: string;
-}) {
-  return (
-    <a
-      href={href}
-      download={fileName ?? true}
-      className="flex items-center justify-center gap-2 rounded-lg bg-[#1a73e8] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#1b66c9]"
-    >
-      <Download className="size-[17px]" />
-      {label}
-    </a>
-  );
 }
 
 export function KnowledgePanel({
@@ -47,9 +22,6 @@ export function KnowledgePanel({
   info,
   photo,
   sourcePrefixLabel = "Fuente:",
-  cvHref,
-  downloadCvLabel,
-  cvFileName,
 }: KnowledgePanelProps) {
   return (
     <div className="border border-surface-border rounded-lg overflow-hidden">
@@ -73,10 +45,6 @@ export function KnowledgePanel({
           {name}
         </h2>
         <p className="text-sm text-content-secondary mt-0.5">{subtitle}</p>
-      </div>
-
-      <div className="p-5 pb-0 pt-4">
-        <CvButton href={cvHref} label={downloadCvLabel} fileName={cvFileName} />
       </div>
 
       <div className="p-5 pt-4">
@@ -123,9 +91,6 @@ interface KnowledgePanelMobileProps {
   photo: string;
   seeMoreLabel: string;
   seeMoreUrl: string;
-  cvHref: string;
-  downloadCvLabel: string;
-  cvFileName?: string;
 }
 
 /** Condensed knowledge card shown ABOVE the results on mobile. */
@@ -135,9 +100,6 @@ export function KnowledgePanelMobile({
   photo,
   seeMoreLabel,
   seeMoreUrl,
-  cvHref,
-  downloadCvLabel,
-  cvFileName,
 }: KnowledgePanelMobileProps) {
   return (
     <div className="border border-surface-border rounded-xl overflow-hidden mb-6 lg:hidden">
@@ -158,14 +120,6 @@ export function KnowledgePanelMobile({
           </Link>
         </div>
       </div>
-      <a
-        href={cvHref}
-        download={cvFileName ?? true}
-        className="flex items-center justify-center gap-2 border-t border-surface-border bg-[#1a73e8] p-3 text-sm font-semibold text-white transition-colors hover:bg-[#1b66c9]"
-      >
-        <Download className="size-4" />
-        {downloadCvLabel}
-      </a>
     </div>
   );
 }
